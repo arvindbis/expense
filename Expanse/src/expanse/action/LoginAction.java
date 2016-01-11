@@ -10,7 +10,7 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
-import expanse.dao.UserDAO;
+import expanse.dao.impl.UserDAO;
 import expanse.entity.User;
 import expanse.formbean.LoginForm;
 
@@ -28,6 +28,7 @@ public class LoginAction extends Action {
 		if(dao.authicateUser(user)){
 			System.out.println("User Authenticated");
 			request.getSession().setAttribute("loggedUser", user);
+			dao.updateLastLogin(user);
 			return mapping.findForward("success");
 		}
 		System.out.println("Authication Failed");

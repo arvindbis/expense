@@ -6,16 +6,24 @@
 	<form-beans>
 		<form-bean name="LoginForm" type="expanse.formbean.LoginForm"></form-bean>
 		<form-bean name="RegisterForm" type="expanse.formbean.RegistrationForm"></form-bean>
+		<form-bean name="DashboardForm" type="expanse.formbean.DashBoardForm" />
+		
 	</form-beans> 
 	
 	<action-mappings>
 		<action path="/login" name="LoginForm" type="expanse.action.LoginAction" input="/index.jsp" validate="true" >
-			<forward name="success" path="/WEB-INF/jsps/dashboard.jsp"/>
+			<forward name="success" path="/dashboard.do"/>
 			<forward name="failure" path="/index.jsp"/>
 		</action>
 		<action path="/register" name="RegisterForm" type="expanse.action.RegistrationAction" input="/register.jsp" validate="true">
 			<forward name="success" path="/WEB-INF/jsps/dashboard.jsp"/>
 			<forward name="failure" path="/register.jsp"/>
+		</action>
+		<action name="DashboardForm" path="/dashboard" type="expanse.action.DashboardAction">
+			<forward name="success" path="/WEB-INF/jsps/dashboard.jsp"/>
+		</action>
+		<action name="ExpenseForm" path="/expense" type="expanse.action.ExpenseAction" input="/addExpense.jsp" validate="true">
+			
 		</action>
 	</action-mappings>
 	

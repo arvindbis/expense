@@ -1,28 +1,41 @@
 package expanse.entity;
 
+import java.sql.Timestamp;
+
 public class User {
 	private String username;
 	private String password;
-	private long user_id;
+	private long userID;
 	private String name;
 	private String email;
+	private Timestamp lastLogin;
+	private long teamID;
 	
 	public User(){
 		
 	}
 	
 	public User(String username, String password){
-		setUser_id(0);
+		setUserID(0);
 		setUsername(username);
 		setPassword(password);
 	}
 	
-	public User(long user_id, String username, String password, String name, String email) {
-		setUser_id(user_id);
+	public User(long userID, String username, String password, String name, String email) {
+		setUserID(userID);
 		setUsername(username);
 		setPassword(password);
 		setName(name);
 		setEmail(email);
+	}
+	
+	public User(long userID, String username, String password, String name, String email,Timestamp lastAccess) {
+		setUserID(userID);
+		setUsername(username);
+		setPassword(password);
+		setName(name);
+		setEmail(email);
+		setLastLogin(lastAccess);
 	}
 
 	public String getUsername() {
@@ -37,13 +50,7 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public long getUser_id() {
-		return user_id;
-	}
-	public void setUser_id(long user_id) {
-		this.user_id = user_id;
-	}
-
+	
 	public String getName() {
 		return name;
 	}
@@ -59,7 +66,33 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
-	
-	
+
+	public long getUserID() {
+		return userID;
+	}
+
+	public void setUserID(long userID) {
+		this.userID = userID;
+	}
+
+	public Timestamp getLastLogin() {
+		return lastLogin;
+	}
+
+	public void setLastLogin(Timestamp lastLogin) {
+		this.lastLogin = lastLogin;
+	}
+
+	public long getTeamID() {
+		return teamID;
+	}
+
+	public void setTeamID(long teamID) {
+		this.teamID = teamID;
+	}
+
+	public String getLastLoginString(){
+		return getLastLogin().toString();
+	}
+		
 }

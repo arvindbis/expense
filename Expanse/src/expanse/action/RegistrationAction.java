@@ -10,7 +10,7 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
-import expanse.dao.UserDAO;
+import expanse.dao.impl.UserDAO;
 import expanse.entity.User;
 import expanse.formbean.RegistrationForm;
 

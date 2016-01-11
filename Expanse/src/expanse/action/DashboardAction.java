@@ -1,5 +1,7 @@
 package expanse.action;
 
+import java.sql.SQLException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -8,13 +10,22 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
+import expanse.dao.impl.ExpenseDAO;
+import expanse.entity.User;
+
 public class DashboardAction extends Action {
 
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		// TODO Auto-generated method stub
-		return super.execute(mapping, form, request, response);
+		long userID = ((User) request.getSession().getAttribute("loggedUser")).getUserID(); 
+		try{
+			System.out.println("Dashboard Action for:\t"+userID);
+			request.setAttribute("expenses", new ExpenseDAO().getAllExpense(userID));
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+		return mapping.findForward("success");
 	}
 
 }
