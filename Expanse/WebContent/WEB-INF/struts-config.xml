@@ -1,0 +1,37 @@
+<!DOCTYPE struts-config PUBLIC 
+"-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" 
+"http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+	<form-beans>
+		<form-bean name="LoginForm" type="expanse.formbean.LoginForm"></form-bean>
+		<form-bean name="RegisterForm" type="expanse.formbean.RegistrationForm"></form-bean>
+	</form-beans> 
+	
+	<action-mappings>
+		<action path="/login" name="LoginForm" type="expanse.action.LoginAction" input="/index.jsp" validate="true" >
+			<forward name="success" path="/WEB-INF/jsps/dashboard.jsp"/>
+			<forward name="failure" path="/index.jsp"/>
+		</action>
+		<action path="/register" name="RegisterForm" type="expanse.action.RegistrationAction" input="/register.jsp" validate="true">
+			<forward name="success" path="/WEB-INF/jsps/dashboard.jsp"/>
+			<forward name="failure" path="/register.jsp"/>
+		</action>
+	</action-mappings>
+	
+	<message-resources parameter="ApplicationResources" />
+	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+		<set-property property="pathnames"
+			value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml" />
+	</plug-in>
+	
+	<!-- <plug-in className="org.apache.struts.tiles.TilesPlugin">
+		<set-property property="definitions-parser-details"
+			value="0" />
+		<set-property property="moduleAware" value="true" />
+		<set-property property="definitions-debug" value="0" />
+		<set-property property="definitions-parser-validate"
+			value="true" />
+		<set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />
+	</plug-in> -->
+</struts-config>
