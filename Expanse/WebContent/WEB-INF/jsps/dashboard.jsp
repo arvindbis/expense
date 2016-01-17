@@ -14,7 +14,7 @@
 <center>
 	<table>
 		<tr>
-			<td><a href="addExpanse.jsp">Add Expanse</a></td>
+			<td><a href="addExpense.jsp">Add Expanse</a></td>
 			<td>Total Expanse for current Month:<b>${total}</b></td>
 			<td>Debt: </b>${debt}</b></td>
 			<td>Credit: <b> ${credit}</b></td>

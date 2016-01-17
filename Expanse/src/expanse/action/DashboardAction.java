@@ -20,7 +20,7 @@ public class DashboardAction extends Action {
 			HttpServletResponse response) throws Exception {
 		long userID = ((User) request.getSession().getAttribute("loggedUser")).getUserID(); 
 		try{
-			System.out.println("Dashboard Action for:\t"+userID);
+			
 			request.setAttribute("expenses", new ExpenseDAO().getAllExpense(userID));
 		}catch(SQLException e){
 			e.printStackTrace();

@@ -21,17 +21,17 @@ public class LoginAction extends Action {
 			HttpServletResponse response) throws Exception {
 		UserDAO dao = new UserDAO();
 		try{
-		LoginForm formData = (LoginForm)form;
-		dao.open();
-		User user = new User(formData.getUsername(),formData.getPassword());
-		System.out.println("Authicating User");
-		if(dao.authicateUser(user)){
-			System.out.println("User Authenticated");
-			request.getSession().setAttribute("loggedUser", user);
-			dao.updateLastLogin(user);
-			return mapping.findForward("success");
-		}
-		System.out.println("Authication Failed");
+			LoginForm formData = (LoginForm)form;
+			dao.open();
+			User user = new User(formData.getUsername(),formData.getPassword());
+			System.out.println("Authicating User");
+			if(dao.authicateUser(user)){
+				System.out.println("User Authenticated");
+				request.getSession().setAttribute("loggedUser", user);
+				dao.updateLastLogin(user);
+				return mapping.findForward("success");
+			}
+			System.out.println("Authication Failed");
 		return mapping.findForward("failure");
 		}catch(SQLException | ClassNotFoundException e){
 			e.printStackTrace();

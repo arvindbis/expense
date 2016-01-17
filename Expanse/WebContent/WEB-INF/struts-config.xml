@@ -7,6 +7,7 @@
 		<form-bean name="LoginForm" type="expanse.formbean.LoginForm"></form-bean>
 		<form-bean name="RegisterForm" type="expanse.formbean.RegistrationForm"></form-bean>
 		<form-bean name="DashboardForm" type="expanse.formbean.DashBoardForm" />
+		<form-bean name="ExpenseForm" type="expanse.formbean.ExpenseForm"></form-bean>
 		
 	</form-beans> 
 	

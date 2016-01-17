@@ -1,6 +1,7 @@
 package expanse.entity;
 
 import java.sql.Timestamp;
+import java.util.Set;
 
 public class User {
 	private String username;
@@ -10,6 +11,7 @@ public class User {
 	private String email;
 	private Timestamp lastLogin;
 	private long teamID;
+	private Set<User> teamMembers;
 	
 	public User(){
 		
@@ -93,6 +95,14 @@ public class User {
 
 	public String getLastLoginString(){
 		return getLastLogin().toString();
+	}
+	
+	public Set<User> getTeamMembers() {
+		return teamMembers;
+	}
+
+	public void setTeamMembers(Set<User> teamMembers) {
+		this.teamMembers = teamMembers;
 	}
 		
 }

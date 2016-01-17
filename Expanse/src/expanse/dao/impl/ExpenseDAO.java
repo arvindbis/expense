@@ -20,7 +20,6 @@ public class ExpenseDAO extends DAO {
 			Expense expense = new Expense(getResult().getLong("expanse_id"),getResult().getLong("paid_by"),getResult().getDouble("amount"),getResult().getString("description"),getResult().getLong("EXPANSE_TYPE_ID"),
 						getResult().getTimestamp("EXPENSE_DATE"),getResult().getTimestamp("REPORTED_DATE"),getResult().getLong("category_id"),getResult().getLong("TEAM_SIZE"));
 			expenses.add(expense);
-			System.out.println("expenses size:\t"+expenses.size());
 		}
 		return expenses;
 	}
